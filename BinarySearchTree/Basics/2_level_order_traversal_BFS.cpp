@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 using namespace std;
 
 class Node
@@ -22,22 +23,14 @@ Node *getNode(int data)
     return node;
 }
 
-// to insert new node in the BST
 void insertNode(Node **root, int data)
 {
     Node *tempNode = getNode(data);
 
-    // handling all the three cases that we can come across
-    // 1. if the root node is empty
-    // this is our base condition
     if (*root == NULL)
     {
-        // if root node is empty simply assign root node the tempNode
-        // that we got from getNode function
         *root = tempNode;
     }
-    // if the data of new node is less than the data in root node
-    // traversing the tree via recursion untill we find a leave node
     else if (data < (*root)->data)
     {
         insertNode(&(*root)->left, data);
@@ -48,14 +41,40 @@ void insertNode(Node **root, int data)
     }
 }
 
+// level order traversal or BFS of BST
+void levelOrderTraversal(Node* root){
+    if (root == NULL){
+        return;
+    }
+    queue<Node*> temp;
+    temp.push(root);
+    while(!temp.empty()){
+        Node* current = temp.front();
+        cout<<current->data<<" ";
+
+        if(current->left != NULL){
+            temp.push(current->left);
+        }
+        if(current->right != NULL){
+            temp.push(current->right);
+        }
+        temp.pop();
+    }
+}
+
 int main()
 {
     Node* root = NULL;
     insertNode(&root, 45);
     insertNode(&root, 55);
     insertNode(&root, 35);
+    insertNode(&root, 25);
+    insertNode(&root, 30);
+    insertNode(&root, 65);
+    insertNode(&root, 75);
 
-    cout<<"data of root is "<<root->data<<"\ndata of left node of root is "<<root->left->data<<"\ndata of right node of root is "<<root->right->data;
+    levelOrderTraversal(root);
+    
     
     return 0;
 }
