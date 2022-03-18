@@ -43,21 +43,29 @@ void insertNode(Node **root, int data)
 
 // level order traversal or BFS of BST
 void levelOrderTraversal(Node* root){
+    
     if (root == NULL){
         return;
     }
-    queue<Node*> temp;
+
+    // creating a temp node to store nodes
+    queue<Node*> temp; 
     temp.push(root);
+
     while(!temp.empty()){
+
+        // current variable is initialised to store the node at the front of temp queue
         Node* current = temp.front();
         cout<<current->data<<" ";
 
+        // pushing chids of current node to the queue
         if(current->left != NULL){
             temp.push(current->left);
         }
         if(current->right != NULL){
             temp.push(current->right);
         }
+        // popping the explored node
         temp.pop();
     }
 }
