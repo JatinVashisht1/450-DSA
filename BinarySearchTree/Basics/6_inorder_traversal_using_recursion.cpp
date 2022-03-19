@@ -57,8 +57,8 @@ void inorderWithIter(Node* root){
             curr = curr->left;
         }
         curr = temp.top();
-        temp.pop();
         cout<<curr->data<<" ";
+        temp.pop();
         curr = curr->right;
     }
 }
