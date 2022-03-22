@@ -23,7 +23,7 @@ Node *getNode(int data)
     return node;
 }
 
-void insertNode(Node **root, int data)
+void insert(Node **root, int data)
 {
     Node *tempNode = getNode(data);
 
@@ -33,11 +33,11 @@ void insertNode(Node **root, int data)
     }
     else if (data < (*root)->data)
     {
-        insertNode(&(*root)->left, data);
+        insert (&(*root)->left, data);
     }
     else
     {
-        insertNode(&(*root)->right, data);
+        insert (&(*root)->right, data);
     }
 }
 
@@ -52,6 +52,7 @@ void levelOrderTraversal(Node* root){
     queue<Node*> temp; 
     temp.push(root);
 
+    // remember that insertion in queue is done at end and deletion at front
     while(!temp.empty()){
 
         // current variable is initialised to store the node at the front of temp queue
@@ -73,13 +74,13 @@ void levelOrderTraversal(Node* root){
 int main()
 {
     Node* root = NULL;
-    insertNode(&root, 45);
-    insertNode(&root, 55);
-    insertNode(&root, 35);
-    insertNode(&root, 25);
-    insertNode(&root, 30);
-    insertNode(&root, 65);
-    insertNode(&root, 75);
+    insert (&root, 45);
+    insert (&root, 55);
+    insert (&root, 35);
+    insert (&root, 25);
+    insert (&root, 30);
+    insert (&root, 65);
+    insert (&root, 75);
 
     levelOrderTraversal(root);
     
