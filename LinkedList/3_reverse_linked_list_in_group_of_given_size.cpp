@@ -35,6 +35,7 @@ void insertInLinkedList(Node **head, int data, int position)
 }
 
 
+
 Node *reverseBySize(Node* head, int k)
 {
     // game of current, next and previous nodes!
