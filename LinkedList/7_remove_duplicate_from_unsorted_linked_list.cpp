@@ -48,6 +48,8 @@ void printList(Node *head)
 
 Node *removeDuplicateFromUnsortedList(Node *head)
 {
+    // set is used to find the duplicate element faster
+    // this brings down the time complexity from O(n pow 2) to O(n)
     unordered_set<int> set;
     Node *current = head;
     Node *previous = NULL;
