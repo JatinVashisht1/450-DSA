@@ -65,7 +65,6 @@ Node* addTwoNumbersUtil(Node* headOne, Node* headTwo, int carry=0){
         headThreeTemp->next = temp;
         headThreeTemp = headThreeTemp->next;
         
-
         cout<<"head one is "<<headOne->data<<" head two is "<<headTwo->data<<" head three is "<<headThree->data<<"\n";
         headOne = headOne->next;
         headTwo = headTwo->next;
